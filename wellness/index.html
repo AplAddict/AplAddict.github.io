@@ -51,7 +51,7 @@ body {color: black; margin: 0px;width:100%;}
 	function email() {
 			var person = prompt(extra + "Please enter your email:", "");
 			if (person == null || person == "") {
-				myFunction();
+				email();
 			} else {
 				document.getElementById("email").innerHTML = person;
 			}
