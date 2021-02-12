@@ -108,6 +108,8 @@
                 document.getElementById("text").innerHTML += txt.charAt(i);
                 i++;
                 setTimeout(typeWriter, speed);
+            } else if (i == txt.length) {
+                Divs();
             }
 
         }
@@ -118,16 +120,13 @@
                 var divs = $('#parent div'),
                     now = divs.filter(':visible'),
                     next = now.next().length ? now.next() : divs.first(),
-                    speed = 500;
+                    speed = 1000;
 
                 now.fadeOut(speed);
                 next.fadeIn(speed);
             }
-        }
-
-        $(function () {
             setInterval(Divs, 4000);
-        });
+        }
     </script>
 </head>
 
