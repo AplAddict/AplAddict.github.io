@@ -5,6 +5,7 @@
     <meta name="viewport" content="height=device-height, width=device-width, minimum-scale=1.0, user-scalable=no" />
     <title>Isaac Zipperstein</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         html,
         body {
@@ -17,7 +18,7 @@
             height: 100vh;
         }
 
-        html{
+        html {
             overflow-y: hidden;
         }
 
@@ -53,19 +54,28 @@
             margin: auto;
             text-align: center;
             font-family: arial;
-            display: inline-block;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(44, 44, 44, 0.6);
             margin-right: 20px;
             margin-left: 20px;
             margin-bottom: 20px;
+            display: inline-block;
         }
 
-@media screen and (max-width: 600px) {
-  .card {
-    width: 100vw;
-  }
-}
-        
+        @media screen and (max-width: 600px) {
+            .card {
+                width: 100vw;
+                overflow: auto;
+            }
+
+            #parent div {
+                display: none;
+            }
+
+            #parent div:first-child {
+                display: block;
+            }
+        }
+
 
         .price {
             color: grey;
@@ -101,6 +111,23 @@
             }
 
         }
+
+        function Divs() {
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width <= 600) {
+                var divs = $('#parent div'),
+                    now = divs.filter(':visible'),
+                    next = now.next().length ? now.next() : divs.first(),
+                    speed = 500;
+
+                now.fadeOut(speed);
+                next.fadeIn(speed);
+            }
+        }
+
+        $(function () {
+            setInterval(Divs, 4000);
+        });
     </script>
 </head>
 
@@ -108,31 +135,31 @@
 
     <div class="container">
         <img src="Background.jpeg" id="back">
-        <div class=" top-center">
+        <div class="top-center">
             <img src="https://scontent-ort2-1.cdninstagram.com/v/t51.2885-19/s320x320/65910442_2312749405482093_4767973191064748032_n.jpg?_nc_ht=scontent-ort2-1.cdninstagram.com&_nc_ohc=rnVrpbhjNwgAX-gUuBU&tp=1&oh=3b7f18bc482314e29c653f60e5bbf4e3&oe=604F8306"
                 style="height: 20vw;border-radius: 100%;">
             <br />
             <h1>Isaac Zipperstein</h1>
             <p id="text"><br /></p>
 
-            <div style="overflow: auto;">
+            <div id="parent" style="overflow: auto;">
                 <br />
-                <div class="card">
-                    <div class="header" style="width:100%;position: relative;text-align: center;color: white;">
+                <div id="box1" class="card">
+                    <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
                         <img style="width:100%;"
                             src="https://www.icja.org/wp-content/themes/gecko-theme/images/page-header-default.png"
                             style="width:100%;">
-                    </div>
+                    </span>
 
                     <h1>Ida Crown Jewish Academy Investment Club</h1>
                     <p>The Ida Crown Jewish Academy Investment Club (ICJAIC) seeks to help students become financially
                         educated.</p>
                     <p><button onclick="location.href= '/ICJAIC.html';">Learn More</button></p>
                 </div>
-                <div class="card">
-                    <div class="header" style="width:100%;position: relative;text-align: center;color: white;">
+                <div id="box2" class="card">
+                    <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
                         <img style="width:100%;" src="STEAM/car.png" style="width:100%;">
-                    </div>
+                    </span>
 
                     <h1>CIJE Bluetooth Lego Car</h1>
                     <p>ICJA STEAM Arduino Capstone Project</p>
