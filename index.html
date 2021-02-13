@@ -129,6 +129,8 @@
         var i = 0;
         var txt = 'I am a 17 year old web developer and know HTML, CSS, JS, Java, and C++. Also, I am interested in investing and the stock market. Check out some of my projects below↴'; /* The text */
         var speed = 50; /* The speed/duration of the effect in milliseconds */
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        var card = document.getElementsByClassName('card');
 
         function typeWriter() {
             if (i < txt.length) {
@@ -138,24 +140,25 @@
             } else if (i == txt.length) {
                 Divs();
                 $(function () {
-                    setInterval(Divs, 4000);
+                    setInterval(Divs, 5000);
                 });
             }
-
         }
-
         function Divs() {
-            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
             if (width <= 600) {
                 var divs = $('#parent div'),
                     now = divs.filter(':visible'),
                     next = now.next().length ? now.next() : divs.first();
-                now.fadeOut(800);
-                next.fadeIn(1300);
+                now.fadeOut(8000);
+                hide();
+                next.fadeIn(1000);
             }
         }
-
-
+        function hide() {
+            card[0].style.display = "none";
+            card[1].style.display = "none";
+            card[2].style.display = "none";
+        }
     </script>
 </head>
 
