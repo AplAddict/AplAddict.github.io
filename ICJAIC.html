@@ -159,6 +159,13 @@
         This is not financial advice.
         <br /><br /><br />
     </center>
+    <div class="callout">
+        <div class="callout-header">This Week</div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+        <div class="callout-container">
+            <p id="display"></p>
+        </div>
+    </div>
 </body>
 <script>
     window.onscroll = function () { myFunction() };
@@ -173,6 +180,27 @@
             navbar.classList.remove("sticky");
         }
     }
+     var url1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTU5w4sMfORocTN8PAtAYDtceoNoRLqNPS_8UfDoS2EVBwIeJHvbX18hiV8ZPIohx9jMPQ-b6OMFuiU/pub?single=true&gid=0&range=J2&output=csv";
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4) {
+                var one = xmlhttp.responseText;
+                document.getElementById("display").innerHTML = "This week the ICJA portfolio is up " + one;
+            }
+        };
+        xmlhttp.open("GET", url1, true);
+        xmlhttp.send(null);
+
+        var url2 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTU5w4sMfORocTN8PAtAYDtceoNoRLqNPS_8UfDoS2EVBwIeJHvbX18hiV8ZPIohx9jMPQ-b6OMFuiU/pub?single=true&gid=0&range=J3&output=csv";
+        xmlhttp1 = new XMLHttpRequest();
+        xmlhttp1.onreadystatechange = function () {
+            if (xmlhttp1.readyState == 4) {
+                var two = xmlhttp1.responseText;
+                document.getElementById("display").innerHTML += " or " + two + ".";
+            }
+        };
+        xmlhttp1.open("GET", url2, true);
+        xmlhttp1.send(null);
 </script>
 <style>
     body {
@@ -194,6 +222,40 @@
         position: fixed;
         top: 0;
         width: 100%;
+    }
+
+    .callout {
+        position: fixed;
+        bottom: 35px;
+        right: 20px;
+        margin-left: 20px;
+        max-width: 300px;
+    }
+
+    .callout-header {
+        padding: 20px 10px;
+        background: #555;
+        font-size: 23px;
+        color: white;
+    }
+
+    .callout-container {
+        padding: 15px;
+        background-color: #ccc;
+        color: black
+    }
+
+    .closebtn {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .closebtn:hover {
+        color: lightgrey;
     }
 </style>
 
