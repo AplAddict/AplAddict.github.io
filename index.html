@@ -16,6 +16,7 @@
             font-family: Arial, Helvetica, sans-serif;
             height: max-content;
             height: 100vh;
+            transition: background-color .5s;
         }
 
         button {
@@ -124,6 +125,59 @@
             margin: 5px 2px;
             color: white;
         }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .menubut:hover {
+            color: #818181 !important;
+            transition: 0.3s;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
     </style>
     <script>
         var i = 0;
@@ -161,11 +215,31 @@
             card[3].style.display = "none";
             card[4].style.display = "none";
         }
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementsByClassName("menubut")[0].style.color = "#818181";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementsByClassName("menubut")[0].style.color = "white";
+        }
     </script>
 </head>
 
-<body onload="typeWriter()">
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/ICJAIC.html">Ida Crown Jewish Academy Investment Club</a>
+    <a href="/STEAM">CIJE Bluetooth Lego Car</a>
+    <a href="https://repo.packix.com/package/com.beta.apladdict.hs13/">Xen HTML iOS Widgets</a>
+    <a onclick="alert('coming soon...');">Custom Designs</a>
+    <a href="crashios.com/share">crashios.com</a>
+</div>
 
+<body id="main" onload="typeWriter()">
+    <span class="menubut" style="font-size:30px;cursor:pointer;color:white;margin-top:15px; margin-left:15px;"
+        onclick="openNav()">&#9776;</span>
     <div class="container">
         <img src="Background.jpeg" id="back">
         <div class="top-center">
@@ -214,26 +288,30 @@
                         </span>
 
                         <h1>Xen HTML iOS Widgets</h1>
-                        <p>Unique iOS widgets made with HTML, CSS, and JS and hosted on Packix for jailbroken devices with XenHTML installed.</p>
-                        <p><button onclick="location.href= '#';">Learn More</button></p>
+                        <p>Unique iOS widgets made with HTML, CSS, and JS and hosted on Packix for jailbroken
+                            devices with XenHTML installed.</p>
+                        <p><button
+                                onclick="location.href= 'https://repo.packix.com/package/com.beta.apladdict.hs13/';">Learn
+                                More</button></p>
                     </div>
                     <div id="box4" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
                             <img style="width:100%;" src="cards.GIF" style="width:100%;">
                         </span>
-                    
+
                         <h1>Custom Designs</h1>
                         <p>Custom Decals, stickers, clothing, business cards, etc.</p>
                         <p><button onclick="location.href= '#';">Learn More</button></p>
                     </div>
                     <div id="box5" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
-                            <img style="width:100%;" src="Crashios.com - Google Search.jpeg"
-                                style="width:100%;">
+                            <img style="width:100%;" src="Crashios.com - Google Search.jpeg" style="width:100%;">
                         </span>
-                    
+
                         <h1>crashios.com</h1>
-                        <p>Crash iOS combines all known iOS WebKit crash bugs into one website. Woks on most versions of iOS up to iOS 14 and even on many versions of macOS. This is for experimentation purposes and only for use with devices you have permission for.</p>
+                        <p>Crash iOS combines all known iOS WebKit crash bugs into one website. Woks on most
+                            versions of iOS up to iOS 14 and even on many versions of macOS. This is for
+                            experimentation purposes and only for use with devices you have permission for.</p>
                         <p><button onclick="location.href= 'http://crashios.com/share';">Learn More</button></p>
                     </div>
                 </center>
