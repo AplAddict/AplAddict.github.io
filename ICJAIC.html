@@ -151,7 +151,7 @@
                 </script>
             </div>
         </div>
-        <iframe frameBorder="0" style="width:100%;max-width:808px;height:380px;"
+        <iframe frameBorder="0" style="width:100%;max-width:808px;height:265px;"
             src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTU5w4sMfORocTN8PAtAYDtceoNoRLqNPS_8UfDoS2EVBwIeJHvbX18hiV8ZPIohx9jMPQ-b6OMFuiU/pubhtml?gid=0&range=A1:H12&single=true&widget=false&headers=false&chrome=false"></iframe>
         <br />
         Stock prices may be delayed.
@@ -179,16 +179,16 @@
             navbar.classList.remove("sticky");
         }
     }
-     var url1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTU5w4sMfORocTN8PAtAYDtceoNoRLqNPS_8UfDoS2EVBwIeJHvbX18hiV8ZPIohx9jMPQ-b6OMFuiU/pub?single=true&gid=0&range=J1:J15&output=csv";
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4) {
-                var res = xmlhttp.responseText.split("%", 4);
-                document.getElementById("display").innerHTML = res[0] + "%." + res[1] + "%." + res[2] + "%" + res[3];
-            }
-        };
-        xmlhttp.open("GET", url1, true);
-        xmlhttp.send(null);
+    var url1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTU5w4sMfORocTN8PAtAYDtceoNoRLqNPS_8UfDoS2EVBwIeJHvbX18hiV8ZPIohx9jMPQ-b6OMFuiU/pub?single=true&gid=0&range=J1:J15&output=csv";
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            var res = xmlhttp.responseText.split("%", 4);
+            document.getElementById("display").innerHTML = res[0] + "%." + res[1] + "%." + res[2] + "%" + res[3];
+        }
+    };
+    xmlhttp.open("GET", url1, true);
+    xmlhttp.send(null);
 </script>
 <style>
     body {
@@ -238,6 +238,19 @@
 
     .closebtn:hover {
         color: rgb(133, 133, 133);
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    iframe::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    iframe {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 </style>
 
