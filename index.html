@@ -25,6 +25,20 @@
 
         html {
             overflow-y: hidden;
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently supported by Chrome and Opera */
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .container {
@@ -225,6 +239,17 @@
             document.getElementById("main").style.marginLeft = "0";
             document.getElementsByClassName("menubut")[0].style.color = "white";
         }
+        var message = "NoRightClicking";
+        function defeatIE() { if (document.all) { (message); return false; } }
+        function defeatNS(e) {
+            if
+                (document.layers || (document.getElementById && !document.all)) {
+                if (e.which == 2 || e.which == 3) { (message); return false; }
+            }
+        }
+        if (document.layers) { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = defeatNS; }
+        else { document.onmouseup = defeatNS; document.oncontextmenu = defeatIE; }
+        document.oncontextmenu = new Function("return false");
     </script>
 </head>
 
@@ -235,16 +260,17 @@
     <a href="https://repo.packix.com/package/com.beta.apladdict.hs13/">Xen HTML iOS Widgets</a>
     <a onclick="alert('coming soon...');">Custom Designs</a>
     <a href="http://crashios.com/share">crashios.com</a>
-    <img style="width:100%;" src="zip.png">
+    <img draggable="false" style="width:100%;" src="zip.png">
 </div>
 
 <body id="main" onload="typeWriter()">
     <span class="menubut" style="font-size:30px;cursor:pointer;color:white;margin-top:15px; margin-left:15px;"
         onclick="openNav()">&#9776;</span>
     <div class="container">
-        <img src="Background.jpeg" id="back">
+        <img draggable="false" src="Background.jpeg" id="back">
         <div class="top-center">
-            <img src="https://scontent-ort2-1.cdninstagram.com/v/t51.2885-19/s320x320/65910442_2312749405482093_4767973191064748032_n.jpg?_nc_ht=scontent-ort2-1.cdninstagram.com&_nc_ohc=rnVrpbhjNwgAX-gUuBU&tp=1&oh=3b7f18bc482314e29c653f60e5bbf4e3&oe=604F8306"
+            <img draggable="false"
+                src="https://scontent-ort2-1.cdninstagram.com/v/t51.2885-19/s320x320/65910442_2312749405482093_4767973191064748032_n.jpg?_nc_ht=scontent-ort2-1.cdninstagram.com&_nc_ohc=rnVrpbhjNwgAX-gUuBU&tp=1&oh=3b7f18bc482314e29c653f60e5bbf4e3&oe=604F8306"
                 style="height: 20vw;border-radius: 100%;">
             <br />
             <h1>Isaac Zipperstein</h1>
@@ -261,7 +287,7 @@
                     <br />
                     <div id="box1" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
-                            <img style="width:100%;"
+                            <img draggable="false" style="width:100%;"
                                 src="https://www.icja.org/wp-content/themes/gecko-theme/images/page-header-default.png"
                                 style="width:100%;">
                         </span>
@@ -274,7 +300,7 @@
                     </div>
                     <div id="box2" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
-                            <img style="width:100%;" src="STEAM/car.png" style="width:100%;">
+                            <img draggable="false" style="width:100%;" src="STEAM/car.png" style="width:100%;">
                         </span>
 
                         <h1>CIJE Bluetooth Lego Car</h1>
@@ -283,7 +309,7 @@
                     </div>
                     <div id="box3" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
-                            <img style="width:100%;"
+                            <img draggable="false" style="width:100%;"
                                 src="https://pbs.twimg.com/profile_banners/795135997017227264/1585542365/1500x500"
                                 style="width:100%;">
                         </span>
@@ -297,7 +323,7 @@
                     </div>
                     <div id="box4" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
-                            <img style="width:100%;" src="cards.GIF" style="width:100%;">
+                            <img draggable="false" style="width:100%;" src="cards.GIF" style="width:100%;">
                         </span>
 
                         <h1>Custom Designs</h1>
@@ -306,7 +332,8 @@
                     </div>
                     <div id="box5" class="card">
                         <span class="header" style="width:100%;position: relative;text-align: center;color: white;">
-                            <img style="width:100%;" src="Crashios.com - Google Search.jpeg" style="width:100%;">
+                            <img draggable="false" style="width:100%;" src="Crashios.com - Google Search.jpeg"
+                                style="width:100%;">
                         </span>
 
                         <h1>crashios.com</h1>
