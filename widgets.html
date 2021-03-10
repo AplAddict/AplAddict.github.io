@@ -29,7 +29,7 @@
             onclick="openNav()">&#9776;</span>
 
         <div style="position: relative; text-align: center; color: white;">
-            <lottie-player id="firstLottie" src="anim.json" style="width:100%;"></lottie-player>
+            <lottie-player id="firstLottie" src="anim.json"></lottie-player>
             <div style="position: absolute; top: 0px; left: 50%; transform: translate(-50%, 0);">
                 <h1>Widgets</h1>
             </div>
@@ -132,6 +132,7 @@
         let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
         if (isMobile) {
+            document.getElementById('firstLottie').style.width = "120%";
             LottieInteractivity.create({
                 mode: "scroll",
                 player: '#firstLottie',
@@ -139,11 +140,12 @@
                     {
                         visibility: [0, 1],
                         type: "seek",
-                        frames: [150, 250]
+                        frames: [120, 220]
                     }
                 ]
             });
         } else {
+            document.getElementById('firstLottie').style.width = "100%";
             LottieInteractivity.create({
                 mode: "scroll",
                 player: '#firstLottie',
