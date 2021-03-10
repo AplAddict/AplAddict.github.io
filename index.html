@@ -255,6 +255,19 @@
         if (document.layers) { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = defeatNS; }
         else { document.onmouseup = defeatNS; document.oncontextmenu = defeatIE; }
         document.oncontextmenu = new Function("return false");
+
+        LottieInteractivity.create({
+                mode: "scroll",
+                player: '#firstLottie',
+                actions: [
+                    {
+                        visibility: [0, 1],
+                        type: "seek",
+                        reverse: true,
+                        frames: [406, 0]
+                    }
+                ]
+            });
     </script>
 </head>
 
