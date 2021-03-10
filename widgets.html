@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <lottie-player id="firstLottie" src="anim.json" style="width:100vw;"></lottie-player>
+    <lottie-player id="firstLottie" src="anim.json" style="width:100vw;margin:0;"></lottie-player>
 </body>
 
 <script>
@@ -16,9 +16,9 @@
         player: '#firstLottie',
         actions: [
             {
-                visibility: [1, 0],
+                visibility: [0, 1],
                 type: "seek",
-                frames: [0, 406]
+                frames: [406, 0]
             }
         ]
     });
