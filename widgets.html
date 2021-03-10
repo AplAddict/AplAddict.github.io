@@ -3,10 +3,25 @@
 
 <head>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
 </head>
 
 <body>
-    <lottie-player src="/anim.json" background="black"
-        speed="1" style="width: 100%; height: 100%;" loop controls autoplay></lottie-player>
+    <lottie-player id="firstLottie" src="anim.json" style="width:100vw;"></lottie-player>
 </body>
+
+<script>
+    LottieInteractivity.create({
+        mode: "scroll",
+        player: '#firstLottie',
+        actions: [
+            {
+                visibility: [0, 1],
+                type: "seek",
+                frames: [0, 300]
+            }
+        ]
+    });
+</script>
+
 </html>
