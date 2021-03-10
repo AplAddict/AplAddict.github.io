@@ -127,17 +127,36 @@
         document.getElementsByClassName("menubut")[0].style.color = "#818181";
     }
 
-    LottieInteractivity.create({
-        mode: "scroll",
-        player: '#firstLottie',
-        actions: [
-            {
-                visibility: [0, 1],
-                type: "seek",
-                frames: [50, 150]
+    
+    $(function () {
+            let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+            if (isMobile) {
+                LottieInteractivity.create({
+                    mode: "scroll",
+                    player: '#firstLottie',
+                    actions: [
+                        {
+                            visibility: [0, 1],
+                            type: "seek",
+                            frames: [50, 150]
+                        }
+                    ]
+                });
+            } else {
+                LottieInteractivity.create({
+                    mode: "scroll",
+                    player: '#firstLottie',
+                    actions: [
+                        {
+                            visibility: [0, 1],
+                            type: "seek",
+                            frames: [75, 175]
+                        }
+                    ]
+                });
             }
-        ]
-    });
+        });
 
     var message = "NoRightClicking";
     function defeatIE() { if (document.all) { (message); return false; } }
