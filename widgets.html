@@ -24,7 +24,7 @@
 </div>
 
 <body id="main">
-    <div style="background-color: black;margin:-8px">
+    <div id="top" style="background-color: black;margin:-8px">
         <span class="menubut" style="font-size:30px;cursor:pointer;color:white;margin-top:15px; margin-left:15px;"
             onclick="openNav()">&#9776;</span>
 
@@ -130,11 +130,12 @@
     LottieInteractivity.create({
         mode: "scroll",
         player: '#firstLottie',
+        container: '#top',
         actions: [
             {
                 visibility: [0, 0.3],
                 type: 'stop',
-                frames: [0],
+                frames: [1],
             },
             {
                 visibility: [0.3, 1],
