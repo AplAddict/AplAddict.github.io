@@ -3,6 +3,11 @@
 
 <head>
     <meta name="viewport" content="height=device-height, width=device-width, minimum-scale=1.0, user-scalable=no" />
+    <title>Isaac Zipperstein: Widgets</title>
+    <meta property="og:title" content="Isaac Zipperstein: Widgets" />
+    <meta property="og:image" content="widgetp.jpg" />
+    <meta property="og:image:alt" content="generating link preview" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
 </head>
@@ -19,7 +24,7 @@
 </div>
 
 <body id="main">
-    <div style="background-color: black;margin:0">
+    <div style="background-color: black;margin:-8px">
         <span class="menubut" style="font-size:30px;cursor:pointer;color:white;margin-top:15px; margin-left:15px;"
             onclick="openNav()">&#9776;</span>
 
@@ -132,7 +137,7 @@
             {
                 visibility: [0.59, 1],
                 type: "seek",
-                frames: [0, 406]
+                frames: [0, 400]
             }
         ]
     });
@@ -159,6 +164,7 @@
         height: max-content;
         height: 100vh;
         transition: background-color .5s;
+        color: white;
     }
 
     button {
