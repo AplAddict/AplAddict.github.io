@@ -7,35 +7,15 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
 </head>
 
-<style>
-    .container {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        margin: 20px;
-    }
+<body style="background-color: black;color: aliceblue;">
+    <div style="position: relative; text-align: center; color: white;">
+        <lottie-player id="firstLottie" src="anim.json" style="width:100vw;"></lottie-player>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <h1>Widgets</h1>
+        </div>
+    </div>
 
-    .box {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .stack-top {
-        z-index: 9;
-    }
-</style>
-
-<body style="margin: 0; background-color: black;color: aliceblue;">
     <p>
-        <span class="container">
-            <lottie-player class="box" id="firstLottie" src="anim.json" style="width:100vw;margin:0;"></lottie-player>
-            <h1 class="box stack-top">
-                <center>Widgets</center>
-            </h1>
-        </span>
         Dignissim convallis aenean et tortor at. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere.
         Bibendum
         neque egestas congue quisque egestas diam in arcu cursus. In tellus integer feugiat scelerisque varius morbi.
