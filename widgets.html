@@ -9,19 +9,7 @@
 
 <body style="margin: 0; background-color: black;">
     <p style="color: aliceblue;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna
-        aliqua. Vitae congue eu consequat ac felis donec et. Nec feugiat in fermentum posuere urna nec tincidunt
-        praesent.
-        Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Non curabitur gravida arcu ac tortor
-        dignissim
-        convallis aenean et. Nibh venenatis cras sed felis eget velit. Sed risus ultricies tristique nulla aliquet enim
-        tortor
-        at auctor. Consequat semper viverra nam libero justo laoreet sit. Amet venenatis urna cursus eget nunc. Pharetra
-        pharetra massa massa ultricies mi quis. Sapien pellentesque habitant morbi tristique senectus et netus et
-        malesuada.
-        <br>
-        <lottie-player id="firstLottie" src="anim.json" style="width:100vw;margin:0;"></lottie-player>
+        <span id="container"><lottie-player id="firstLottie" src="anim.json" style="width:100vw;margin:0;"></lottie-player></span>
         Dignissim convallis aenean et tortor at. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere.
         Bibendum
         neque egestas congue quisque egestas diam in arcu cursus. In tellus integer feugiat scelerisque varius morbi.
@@ -136,6 +124,7 @@
     LottieInteractivity.create({
         mode: "scroll",
         player: '#firstLottie',
+        container: '#container',
         actions: [
             {
                 visibility: [0, 1],
