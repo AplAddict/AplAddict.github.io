@@ -7,8 +7,9 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
 </head>
 
-<body style="margin: 0; background-color: black;">
-    <p style="color: aliceblue;">
+<body style="margin: 0; background-color: black;color: aliceblue;">
+    <p>
+        <h1>Widgets</h1>
         <span id="container"><lottie-player id="firstLottie" src="anim.json" style="width:100vw;margin:0;"></lottie-player></span>
         Dignissim convallis aenean et tortor at. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere.
         Bibendum
@@ -124,8 +125,12 @@
     LottieInteractivity.create({
         mode: "scroll",
         player: '#firstLottie',
-        container: '#container',
         actions: [
+            {
+                visibility: [0, 0.3],
+                type: 'stop',
+                frames: [0],
+            },
             {
                 visibility: [0, 1],
                 type: "seek",
