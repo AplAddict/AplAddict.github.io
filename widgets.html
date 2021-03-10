@@ -25,16 +25,18 @@
 
 <body id="main">
     <div style="background-color: black;margin:-8px">
-        <span class="menubut" style="font-size:30px;cursor:pointer;color:white;margin-top:15px; margin-left:15px;float:left;"
+        <span class="menubut" style="font-size:30px;cursor:pointer;color:white;margin-top:15px; margin-left:15px;"
             onclick="openNav()">&#9776;</span>
 
         <div style="position: relative; text-align: center; color: white;">
             <lottie-player id="firstLottie" src="anim.json" style="width:100%;"></lottie-player>
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div style="position: absolute; top: 8px; left: 50%; transform: translate(-50%, 0);">
                 <h1>Widgets</h1>
             </div>
         </div>
     </div>
+
+    <br><br><br><br>
 
     <div id="parent">
         <center>
@@ -113,17 +115,17 @@
     }
 
     function hide() {
-            card[0].style.display = "none";
-            card[1].style.display = "none";
-            card[2].style.display = "none";
-            card[3].style.display = "none";
-            card[4].style.display = "none";
-        }
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            document.getElementsByClassName("menubut")[0].style.color = "#818181";
-        }
+        card[0].style.display = "none";
+        card[1].style.display = "none";
+        card[2].style.display = "none";
+        card[3].style.display = "none";
+        card[4].style.display = "none";
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementsByClassName("menubut")[0].style.color = "#818181";
+    }
 
     LottieInteractivity.create({
         mode: "scroll",
@@ -143,16 +145,16 @@
     });
 
     var message = "NoRightClicking";
-        function defeatIE() { if (document.all) { (message); return false; } }
-        function defeatNS(e) {
-            if
-                (document.layers || (document.getElementById && !document.all)) {
-                if (e.which == 2 || e.which == 3) { (message); return false; }
-            }
+    function defeatIE() { if (document.all) { (message); return false; } }
+    function defeatNS(e) {
+        if
+            (document.layers || (document.getElementById && !document.all)) {
+            if (e.which == 2 || e.which == 3) { (message); return false; }
         }
-        if (document.layers) { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = defeatNS; }
-        else { document.onmouseup = defeatNS; document.oncontextmenu = defeatIE; }
-        document.oncontextmenu = new Function("return false");
+    }
+    if (document.layers) { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = defeatNS; }
+    else { document.onmouseup = defeatNS; document.oncontextmenu = defeatIE; }
+    document.oncontextmenu = new Function("return false");
 </script>
 
 <style>
