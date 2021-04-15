@@ -313,7 +313,9 @@
   <script>
     function pass(url) {
       var query = prompt("Please enter your unique 3SCAPE code:", "");
-      if (query != "") {
+      if (query == "" || query == null) {
+        pass(url);
+      } else {
         window.open('https://www.isaaczipperstein.com/' + url + "?user=" + query, '_blank');
       }
     }
