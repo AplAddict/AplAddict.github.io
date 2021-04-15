@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        font-family: -apple-system, system-ui;
+        background-color: #39f0fe;
+        color: #000;
+        margin: 30px;
+        text-align: center
+    }
+
+    textarea,
+    input {
+        border: none;
+        width: 80%;
+        display: block;
+        font-size: 16px;
+        padding: 15px;
+        border-radius: 7px;
+        box-sizing: border-box;
+        background-color: black;
+        color: white;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 27px
+    }
+
+    input {
+        padding: 0 15px
+    }
+
+    .password {
+        font-weight: 600;
+        width: 100%;
+        height: 40px;
+        margin: 20px 0
+    }
+</style>
+<body>
+    <h1>Enter Correct Emoji</h1>
+    <input type="password" id="emoji" class="password" oninput="emoji(this.value)">
+
+    <script>
+        function emoji(val) {
+            if (val == "\uD83E\uDD2F") {
+                alert("\uD83E\uDD2F");
+            }
+        }
+    </script>
+</body>
+
+</html>
