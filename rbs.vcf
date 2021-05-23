@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 14.1//EN
+N:;Richard’s Body Shop;;;
+FN:Richard’s Body Shop
+EMAIL;type=INTERNET;type=pref:3041rbs@gmail.com
+item1.TEL;type=pref:(773) 588-3301
+item1.X-ABLabel:_$!<CompanyMain>!$_
+TEL;type=WORK;type=VOICE:(312) 829-0988
+item2.ADR;type=HOME;type=pref:;;3041 W Lawrence Ave;Chicago;IL;60625;United States
+item2.X-ABADR:us
+item3.ADR;type=OTHER:;;2666 W Grand Ave;Chicago;IL;60612;United States
+item3.X-ABADR:us
+item4.URL;type=pref:richardsbodyshopchicago.com
+item4.X-ABLabel:_$!<HomePage>!$_
+END:VCARD
