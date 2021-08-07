@@ -23,7 +23,9 @@
             max-width: 100%;
             overflow-x: hidden;
             overflow-y: auto;
-            background-image: url("gradient.jpg");
+            background: linear-gradient(90deg, #E65799, #3976E8);
+            background-size: 200% 200%;
+            animation: GradientBackground 10s ease infinite;
             font-family: Arial, Helvetica, sans-serif;
             height: max-content;
             height: 100vh;
@@ -101,6 +103,7 @@
         }
 
         .fa:hover {
+            color: rgb(235, 235, 235);
             opacity: 0.7;
         }
 
@@ -119,11 +122,28 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-image: url("gradient.jpg");
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
+            background: linear-gradient(90deg, #E65799, #3976E8);
+            background-size: 200% 200%;
+            animation: GradientBackground 10s ease infinite;
         }
+
+        @keyframes GradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
 
         .sidenav a {
             padding: 8px 8px 8px 32px;
