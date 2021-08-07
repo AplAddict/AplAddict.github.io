@@ -119,7 +119,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #111;
+            background-image: url("gradient.jpg");
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
@@ -129,18 +129,13 @@
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
-            color: #818181;
+            color: white;
             display: block;
             transition: 0.3s;
         }
 
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-        .menubut:hover {
-            color: #818181 !important;
-            transition: 0.3s;
+        a:hover {
+            opacity: 0.7;
         }
 
         .sidenav .closebtn {
@@ -167,14 +162,10 @@
     </style>
     <script>
         function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            document.getElementsByClassName("menubut")[0].style.color = "#818181";
+            document.getElementById("mySidenav").style.width = "100%";
         }
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-            document.getElementsByClassName("menubut")[0].style.color = "white";
         }
         var message = "NoRightClicking";
         function defeatIE() { if (document.all) { (message); return false; } }
