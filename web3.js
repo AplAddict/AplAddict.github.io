@@ -167,6 +167,8 @@ async function onConnect() {
         return;
     }
 
+    web3.eth.accounts.sign('Some data', '0x4c0883a69102937d6231471b5dbb6204fe5129617082792ae468d01a3f362318');
+    
     // Subscribe to accounts change
     provider.on("accountsChanged", (accounts) => {
         fetchAccountData();
@@ -183,7 +185,6 @@ async function onConnect() {
     });
 
     await refreshAccountData();
-    await signTest()
 }
 
 /**
@@ -221,31 +222,3 @@ window.addEventListener('load', async () => {
     document.querySelector("#btn-connect").addEventListener("click", onConnect);
     document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
 });
-
-async function signTest() {
-
-    // Using eth.sign()
-
-    let accounts = await web3.eth.getAccounts();
-    let msg = "Some data"
-
-    let prefix = "\x19Ethereum Signed Message:\n" + msg.length
-    let msgHash1 = web3.utils.sha3(prefix + msg)
-
-    let sig1 = await web3.eth.sign(msg, accounts[0]);
-
-
-    // Using eth.accounts.sign() - returns an object
-
-    let privateKey = "0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3"
-
-    let sigObj = await web3.eth.accounts.sign(msg, privateKey)
-    let msgHash2 = sigObj.messageHash;
-
-    let sig2 = sigObj.signature;
-
-
-    let whoSigned1 = await web3.eth.accounts.recover(msg, sig1)
-    let whoSigned2 = await web3.eth.accounts.recover(sigObj)
-
-}
