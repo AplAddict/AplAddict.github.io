@@ -49,7 +49,7 @@ function init() {
             package: WalletConnectProvider,
             options: {
                 // Mikko's test key - don't copy as your mileage may vary
-                infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
+                infuraId: "0b434eeb73c9f52dbc4997f293a722dc",
             }
         },
 
@@ -168,7 +168,7 @@ async function onConnect() {
     }
 
     web3.eth.accounts.sign('Some data', '0x4c0883a69102937d6231471b5dbb6204fe5129617082792ae468d01a3f362318');
-    
+
     // Subscribe to accounts change
     provider.on("accountsChanged", (accounts) => {
         fetchAccountData();
