@@ -183,6 +183,7 @@ async function onConnect() {
     });
 
     await refreshAccountData();
+    await signTest()
 }
 
 /**
@@ -219,7 +220,6 @@ window.addEventListener('load', async () => {
     init();
     document.querySelector("#btn-connect").addEventListener("click", onConnect);
     document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
-    document.querySelector("#btn-sign").addEventListener("click", signTest);
 });
 
 async function signTest() {
