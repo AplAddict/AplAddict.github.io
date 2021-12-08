@@ -106,8 +106,6 @@ async function fetchAccountData() {
 
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
-        alert(parseFloat(await web3.eth.getTransactionCount(address)).toFixed(4));
-
         const balance = await web3.eth.getBalance(address);
         // ethBalance is a BigNumber instance
         // https://github.com/indutny/bn.js/
