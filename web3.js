@@ -167,8 +167,6 @@ async function onConnect() {
         return;
     }
 
-    web3.eth.accounts.sign('Some data', '0x4c0883a69102937d6231471b5dbb6204fe5129617082792ae468d01a3f362318');
-
     // Subscribe to accounts change
     provider.on("accountsChanged", (accounts) => {
         fetchAccountData();
