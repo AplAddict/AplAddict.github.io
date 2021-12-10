@@ -51,6 +51,13 @@ function init() {
                 // Mikko's test key - don't copy as your mileage may vary
                 infuraId: "0b434eeb73c9f52dbc4997f293a722dc",
             }
+        },
+        fortmatic: {
+            package: Fortmatic,
+            options: {
+                // Mikko's TESTNET api key
+                key: "pk_test_391E26A3B43A3350"
+            }
         }
     };
 
