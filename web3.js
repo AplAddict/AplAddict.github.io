@@ -70,7 +70,6 @@ function init() {
     console.log("Web3Modal instance is", web3Modal);
 }
 
-var balances = 0
 
 /**
  * Kick in the UI action after Web3modal dialog has chosen a provider
@@ -104,7 +103,7 @@ async function fetchAccountData() {
     // Purge UI elements any previously loaded accounts
     accountContainer.innerHTML = '';
 
-    balances = 0
+    var balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
         const balance = await web3.eth.getBalance(address);
@@ -112,7 +111,7 @@ async function fetchAccountData() {
         // https://github.com/indutny/bn.js/
         const ethBalance = web3.utils.fromWei(balance, "ether");
         const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
-        balances += humanFriendlyBalance
+        balances += parseFloat(ethBalance)
         // Fill in the templated row and put in the document
         const clone = template.content.cloneNode(true);
         clone.querySelector(".address").textContent = address;
@@ -120,6 +119,13 @@ async function fetchAccountData() {
         accountContainer.appendChild(clone);
     });
 
+    fetch("https://api.cryptonator.com/api/full/eth-usd")
+        .then((response) => response.json())
+        .then((data) => {
+            alert(usdPrice.toFixed(4));
+            document.getElementById("title").innerHTML = "$" + (balances * data.ticker.price).toFixed(4) + "Of Ethereum";
+        });
+    
     // Because rendering account does its own RPC commucation
     // with Ethereum node, we do not want to display any results
     // until data for all accounts is loaded
@@ -168,13 +174,6 @@ async function onConnect() {
         console.log("Could not get a wallet connection", e);
         return;
     }
-    fetch("https://api.cryptonator.com/api/full/eth-usd")
-        .then((response) => response.json())
-        .then((data) => {
-            let usdPrice = balances * data.ticker.price;
-            alert(usdPrice.toFixed(4));
-            document.getElementById("title").innerHTML = "$" + usdPrice.toFixed(4) + "Of Ethereum";
-        });
 
     // Subscribe to accounts change
     provider.on("accountsChanged", (accounts) => {
@@ -199,7 +198,6 @@ async function onConnect() {
  */
 async function onDisconnect() {
 
-    balances = 0
     document.getElementById("title").innerHTML = "Web3 Ethereum Tracker";
     console.log("Killing the wallet connection", provider);
 
