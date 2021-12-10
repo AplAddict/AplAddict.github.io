@@ -118,11 +118,9 @@ async function fetchAccountData() {
         accountContainer.appendChild(clone);
     });
 
-    fetch("https://api.cryptonator.com/api/full/eth-usd")
-        .then((response) => response.json())
-        .then((data) => {
-            alert(usdPrice.toFixed(4));
-            document.getElementById("title").innerHTML = "$" + (balances * data.ticker.price).toFixed(4) + "Of Ethereum";
+    fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
+        response.json()).then((data) => {
+            document.getElementById("title").innerHTML = `\$${(balances * data.ticker.price).toFixed(2)} Of Ethereum`;
         });
     
     // Because rendering account does its own RPC commucation
