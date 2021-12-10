@@ -70,6 +70,7 @@ function init() {
     console.log("Web3Modal instance is", web3Modal);
 }
 
+var balances = 0
 
 /**
  * Kick in the UI action after Web3modal dialog has chosen a provider
@@ -103,7 +104,7 @@ async function fetchAccountData() {
     // Purge UI elements any previously loaded accounts
     accountContainer.innerHTML = '';
 
-    var balances = 0
+    balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
         const balance = await web3.eth.getBalance(address);
