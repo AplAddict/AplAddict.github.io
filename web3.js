@@ -163,8 +163,8 @@ async function onConnect() {
     fetch("https://api.cryptonator.com/api/full/eth-usd")
         .then((response) => response.json())
         .then((data) => {
-            let usdResults = document.createElement("li");
             let usdPrice = balances * data.ticker.price;
+            alert(usdPrice.toFixed(4));
             document.getElementById("title").innerHTML = "$" + usdPrice.toFixed(4) + "Of Ethereum";
         });
 
