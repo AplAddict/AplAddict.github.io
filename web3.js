@@ -96,6 +96,7 @@ async function fetchAccountData() {
     // Purge UI elements any previously loaded accounts
     accountContainer.innerHTML = '';
 
+    var balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
         const balance = await web3.eth.getBalance(address);
@@ -103,6 +104,7 @@ async function fetchAccountData() {
         // https://github.com/indutny/bn.js/
         const ethBalance = web3.utils.fromWei(balance, "ether");
         const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
+        balances += humanFriendlyBalance
         // Fill in the templated row and put in the document
         const clone = template.content.cloneNode(true);
         clone.querySelector(".address").textContent = address;
@@ -158,6 +160,13 @@ async function onConnect() {
         console.log("Could not get a wallet connection", e);
         return;
     }
+    fetch("https://api.cryptonator.com/api/full/eth-usd")
+        .then((response) => response.json())
+        .then((data) => {
+            let usdResults = document.createElement("li");
+            let usdPrice = balances * data.ticker.price;
+            document.getElementById("title").innerHTML = "$" + usdPrice.toFixed(4) + "Of Ethereum";
+        });
 
     // Subscribe to accounts change
     provider.on("accountsChanged", (accounts) => {
@@ -182,6 +191,8 @@ async function onConnect() {
  */
 async function onDisconnect() {
 
+    balances = 0
+    document.getElementById("title").innerHTML = "Web3 Ethereum Tracker";
     console.log("Killing the wallet connection", provider);
 
     // TODO: Which providers have close method?
