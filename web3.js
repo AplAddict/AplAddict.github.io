@@ -102,6 +102,12 @@ async function fetchAccountData() {
     // Purge UI elements any previously loaded accounts
     accountContainer.innerHTML = '';
 
+    var price;
+    fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
+        response.json()).then((data) => {
+            price = data.ticker.price
+        });
+    
     var balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
@@ -117,18 +123,12 @@ async function fetchAccountData() {
         clone.querySelector(".balance").textContent = humanFriendlyBalance;
         accountContainer.appendChild(clone);
     });
-
-    document.getElementById("eth-balance").innerText = balances.toFixed(4) + " ETH ";
-    fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
-        response.json()).then((data) => {
-            document.getElementById("eth-balance").innerText += "($" + (balances * data.ticker.price).toFixed(2) + " USD)";
-        });
     
     // Because rendering account does its own RPC commucation
     // with Ethereum node, we do not want to display any results
     // until data for all accounts is loaded
     await Promise.all(rowResolvers);
-
+    document.getElementById("eth-balance").innerHTML = balances.toFixed(4) + " ETH ($" + (balances * price).toFixed(2) + " USD)";
     // Display fully loaded UI for wallet data
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
