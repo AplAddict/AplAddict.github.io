@@ -107,8 +107,8 @@ async function fetchAccountData() {
         response.json()).then((data) => {
             price = data.ticker.price
         });
-    
-    let tokenAddress = "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE";
+    let tokenAddress = "0x20fe562d797a42dcb3399062ae9546cd06f63280";
+
     // The minimum ABI to get ERC20 Token balance
     let minABI = [
         // balanceOf
@@ -129,18 +129,11 @@ async function fetchAccountData() {
         }
     ];
 
-    // Get ERC20 Token contract instance
-    let contract = web3.eth.contract(minABI).at(tokenAddress);
-    var shib = 0
-    // Call balanceOf function
-    contract.balanceOf(selectedAccount, (error, balance) => {
-        // Get decimals
-        contract.decimals((error, decimals) => {
-            // calculate a balance
-            shib = balance.div(10 ** decimals);
-            console.log(balance.toString());
-        });
-    });
+    let contract = new web3.eth.Contract(minABI, tokenAddress);
+    async function getBalance() {
+        balance = await contract.methods.balanceOf(selectedAccount).call();
+        return balance;
+    }
     
     var balances = 0
     // Go through all accounts and get their ETH balance
@@ -157,13 +150,15 @@ async function fetchAccountData() {
         clone.querySelector(".balance").textContent = humanFriendlyBalance;
         accountContainer.appendChild(clone);
     });
+    getBalance().then(function (result) {
+        document.getElementById("shib-balance").innerHTML = result.toFixed() + " SHIB";
+    });
     
     // Because rendering account does its own RPC commucation
     // with Ethereum node, we do not want to display any results
     // until data for all accounts is loaded
     await Promise.all(rowResolvers);
     document.getElementById("eth-balance").innerHTML = balances.toFixed(4) + " ETH ($" + (balances * price).toFixed(2) + " USD)";
-    document.getElementById("shib-balance").innerHTML = shib + " SHIB";
     // Display fully loaded UI for wallet data
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
