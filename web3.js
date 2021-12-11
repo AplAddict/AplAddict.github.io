@@ -95,13 +95,6 @@ async function fetchAccountData() {
 
     document.querySelector("#selected-account").textContent = selectedAccount;
 
-    // Get a handl
-    const template = document.querySelector("#template-balance");
-    const accountContainer = document.querySelector("#accounts");
-
-    // Purge UI elements any previously loaded accounts
-    accountContainer.innerHTML = '';
-
     var balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
@@ -109,18 +102,13 @@ async function fetchAccountData() {
         // ethBalance is a BigNumber instance
         // https://github.com/indutny/bn.js/
         const ethBalance = web3.utils.fromWei(balance, "ether");
-        const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
         balances += parseFloat(ethBalance)
-        // Fill in the templated row and put in the document
-        const clone = template.content.cloneNode(true);
-        clone.querySelector(".address").textContent = address;
-        clone.querySelector(".balance").textContent = humanFriendlyBalance;
-        accountContainer.appendChild(clone);
     });
 
     fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
         response.json()).then((data) => {
-            document.getElementById("title").innerHTML = `\$${(balances * data.ticker.price).toFixed(2)} Of Ethereum`;
+            document.getElementById("balance").style.display = "block";
+            document.getElementById("eth-balance").innerHTML = `${balances.toFixed(4)} ETH (\$${(balances * data.ticker.price).toFixed(2)} USD)`;
         });
     
     // Because rendering account does its own RPC commucation
@@ -195,7 +183,7 @@ async function onConnect() {
  */
 async function onDisconnect() {
 
-    document.getElementById("title").innerHTML = "Web3 Ethereum Tracker";
+    document.getElementById("balance").style.display = "none";
     console.log("Killing the wallet connection", provider);
 
     // TODO: Which providers have close method?
