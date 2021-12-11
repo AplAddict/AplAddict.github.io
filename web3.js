@@ -134,6 +134,10 @@ async function fetchAccountData() {
         balance = await contract.methods.balanceOf(selectedAccount).call();
         return balance;
     }
+    getBalance().then(function (result) {
+        alert(result.toFixed());
+        document.getElementById("shib-balance").innerHTML = result.toFixed() + " SHIB";
+    });
     
     var balances = 0
     // Go through all accounts and get their ETH balance
@@ -149,9 +153,6 @@ async function fetchAccountData() {
         clone.querySelector(".address").textContent = address;
         clone.querySelector(".balance").textContent = humanFriendlyBalance;
         accountContainer.appendChild(clone);
-    });
-    getBalance().then(function (result) {
-        document.getElementById("shib-balance").innerHTML = result.toFixed() + " SHIB";
     });
     
     // Because rendering account does its own RPC commucation
