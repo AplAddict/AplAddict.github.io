@@ -107,7 +107,6 @@ async function fetchAccountData() {
 
     fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
         response.json()).then((data) => {
-            document.getElementById("balance").style.display = "block";
             document.getElementById("eth-balance").innerHTML = `${balances.toFixed(4)} ETH (\$${(balances * data.ticker.price).toFixed(2)} USD)`;
         });
     
@@ -183,7 +182,6 @@ async function onConnect() {
  */
 async function onDisconnect() {
 
-    document.getElementById("balance").style.display = "none";
     console.log("Killing the wallet connection", provider);
 
     // TODO: Which providers have close method?
