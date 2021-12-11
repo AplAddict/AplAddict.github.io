@@ -95,6 +95,13 @@ async function fetchAccountData() {
 
     document.querySelector("#selected-account").textContent = selectedAccount;
 
+    // Get a handl
+    const template = document.querySelector("#template-balance");
+    const accountContainer = document.querySelector("#accounts");
+
+    // Purge UI elements any previously loaded accounts
+    accountContainer.innerHTML = '';
+
     var balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
@@ -104,6 +111,11 @@ async function fetchAccountData() {
         const ethBalance = web3.utils.fromWei(balance, "ether");
         const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
         balances += parseFloat(ethBalance)
+        // Fill in the templated row and put in the document
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".address").textContent = address;
+        clone.querySelector(".balance").textContent = humanFriendlyBalance;
+        accountContainer.appendChild(clone);
     });
 
     fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
