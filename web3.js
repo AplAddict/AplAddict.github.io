@@ -107,8 +107,8 @@ async function fetchAccountData() {
         response.json()).then((data) => {
             price = data.ticker.price
         });
-    let tokenAddress = "0x20fe562d797a42dcb3399062ae9546cd06f63280";
-
+    
+    let tokenAddress = "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE";
     // The minimum ABI to get ERC20 Token balance
     let minABI = [
         // balanceOf
