@@ -120,7 +120,7 @@ async function fetchAccountData() {
 
     const price = await fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
         response.json()).then((data) => {
-            document.getElementById("eth-balance").innerHTML = balances.toFixed(4) + " ETH ($" + (balances * data.ticker.price).toFixed(2) + " USD)";
+            document.querySelector("#eth-balance").textContent = balances.toFixed(4) + " ETH ($" + (balances * data.ticker.price).toFixed(2) + " USD)";
         });
     
     // Because rendering account does its own RPC commucation
