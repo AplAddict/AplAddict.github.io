@@ -108,6 +108,40 @@ async function fetchAccountData() {
             price = data.ticker.price
         });
     
+    let tokenAddress = "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE";
+    // The minimum ABI to get ERC20 Token balance
+    let minABI = [
+        // balanceOf
+        {
+            "constant": true,
+            "inputs": [{ "name": "_owner", "type": "address" }],
+            "name": "balanceOf",
+            "outputs": [{ "name": "balance", "type": "uint256" }],
+            "type": "function"
+        },
+        // decimals
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [{ "name": "", "type": "uint8" }],
+            "type": "function"
+        }
+    ];
+
+    // Get ERC20 Token contract instance
+    let contract = web3.eth.contract(minABI).at(tokenAddress);
+    var shib = 0
+    // Call balanceOf function
+    contract.balanceOf(selectedAccount, (error, balance) => {
+        // Get decimals
+        contract.decimals((error, decimals) => {
+            // calculate a balance
+            shib = balance.div(10 ** decimals);
+            console.log(balance.toString());
+        });
+    });
+    
     var balances = 0
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
@@ -129,6 +163,7 @@ async function fetchAccountData() {
     // until data for all accounts is loaded
     await Promise.all(rowResolvers);
     document.getElementById("eth-balance").innerHTML = balances.toFixed(4) + " ETH ($" + (balances * price).toFixed(2) + " USD)";
+    document.getElementById("shib-balance").innerHTML = shib + " SHIB";
     // Display fully loaded UI for wallet data
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
