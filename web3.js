@@ -99,9 +99,17 @@ async function fetchAccountData() {
     // Go through all accounts and get their ETH balance
     const rowResolvers = accounts.map(async (address) => {
         const balance = await web3.eth.getBalance(address);
+        // ethBalance is a BigNumber instance
+        // https://github.com/indutny/bn.js/
         const ethBalance = web3.utils.fromWei(balance, "ether");
-        balances += parseFloat(ethBalance);
+        const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
+        balances += parseFloat(ethBalance)
     });
+
+    fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
+        response.json()).then((data) => {
+            document.getElementById("title").innerHTML = `\$${(balances * data.ticker.price).toFixed(2)} Of Ethereum`;
+        });
     
     // Because rendering account does its own RPC commucation
     // with Ethereum node, we do not want to display any results
@@ -109,10 +117,6 @@ async function fetchAccountData() {
     await Promise.all(rowResolvers);
 
     // Display fully loaded UI for wallet data
-    fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
-        response.json()).then((data) => {
-            document.getElementById("title").innerHTML = `\$${(balances * data.ticker.price).toFixed(2)} Of Ethereum`;
-        });
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
 }
