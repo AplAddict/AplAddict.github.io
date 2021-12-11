@@ -120,7 +120,7 @@ async function fetchAccountData() {
 
     fetch("https://api.cryptonator.com/api/ticker/eth-usd").then((response) =>
         response.json()).then((data) => {
-            document.getElementById("title").innerHTML = `\$${(balances * data.ticker.price).toFixed(2)} Of Ethereum`;
+            document.getElementById("eth-balance").innerHTML = balances.toFixed(4) + " ETH ($" + (balances * data.ticker.price).toFixed(2) + " USD)";
         });
     
     // Because rendering account does its own RPC commucation
@@ -195,7 +195,6 @@ async function onConnect() {
  */
 async function onDisconnect() {
 
-    document.getElementById("title").innerHTML = "Web3 Ethereum Tracker";
     console.log("Killing the wallet connection", provider);
 
     // TODO: Which providers have close method?
