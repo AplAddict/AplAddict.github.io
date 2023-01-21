@@ -24,7 +24,7 @@
 
 body {
    background: #0f0f0f;
-   width: 100%;
+   width: 100vw;
    overflow-x: hidden;
 }
 
