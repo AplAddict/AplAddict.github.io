@@ -22,9 +22,10 @@
 /* a. General Styles
 /* ------------------------------------------------------------------ */
 
-body {
-   background: #0f0f0f;
-   width: 100vw;
+body { background: #0f0f0f; }
+
+html, body {
+   max-width: 100%;
    overflow-x: hidden;
 }
 
