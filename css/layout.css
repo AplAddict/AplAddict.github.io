@@ -254,6 +254,7 @@ ul#nav li.current a { color: #F06000; }
 
 #resume, #bottom285 {
    background: #fff;
+   background-color: #fff;
    padding-top: 90px;
    padding-bottom: 72px;
    overflow: hidden;
@@ -779,7 +780,7 @@ call-to-action .button {
     margin: 0 6px;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    display: inline;
 }
 .flex-control-paging li a {
     width: 12px;
