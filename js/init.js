@@ -202,7 +202,7 @@ window.addEventListener('hashchange', () => {
    hide();
 });
 
-function hide(params) {
+function hide() {
    if (window.location.href.indexOf("btw285") > -1) {
       document.getElementById('about').style.display = "none";
       document.getElementById('resume').style.display = "none";
