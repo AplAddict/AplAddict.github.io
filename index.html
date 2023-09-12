@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body onload="hide();">
 
    <!-- Header
    ================================================== -->
@@ -52,11 +52,12 @@
          <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+            <li><a class="current"><a class="smoothscroll" href="#home">Home</a></li>
             <li><a class="smoothscroll" href="#about">About</a></li>
             <li><a class="smoothscroll" href="#resume">Resume</a></li>
             <li><a class="smoothscroll" href="#portfolio">Widgets</a></li>
             <li><a class="smoothscroll" href="#projects">Projects</a></li>
+            <li><a href="#btw285">BTW 285</a></li>
          </ul> <!-- end #nav -->
 
       </nav> <!-- end #nav-wrap -->
@@ -64,7 +65,8 @@
       <div class="row banner">
          <div class="banner-text">
             <h1 class="responsive-headline">Isaac Zipperstein</h1>
-            <h3>As a Financial Planning Student at the University of Illinois Urbana-Champaign, I plan to work in the tech industry and in real estate. I have also developed websites, <a class="smoothscroll"
+            <h3>As a Financial Planning Student at the University of Illinois Urbana-Champaign, I plan to work in the
+               tech industry and in real estate. I have also developed websites, <a class="smoothscroll"
                   href="#portfolio">iOS
                   widgets</a>, and <a class="smoothscroll" href="#projects">other programs.</a> Through my education and
                extracurricular involvement, I am
@@ -155,12 +157,15 @@
                <div class="twelve columns">
 
                   <h3>University of Illinois Urbana-Champaign</h3>
-                  <p class="info">B.S. in ACE Financial Planning <span>&bull;</span> <em class="date">May 2025</em><br>Minor In Business, Informatics, and Jewish Studies</p>
+                  <p class="info">B.S. in ACE Financial Planning <span>&bull;</span> <em class="date">May
+                        2025</em><br>Minor In Business, Informatics, and Jewish Studies</p>
 
                   <ul>
-                     <li><a href="https://publicaffairs.illinois.edu/lists/spring-2022-deans-list/">Spring 2022 Dean's List</a></li>
-                     <li><a href="https://www.sam-fdn.org/2022-2023-guller-young-scholars">2022-2023 Guller Young Scholar</a></li>
-                   </ul>
+                     <li><a href="https://publicaffairs.illinois.edu/lists/spring-2022-deans-list/">Spring 2022 Dean's
+                           List</a></li>
+                     <li><a href="https://www.sam-fdn.org/2022-2023-guller-young-scholars">2022-2023 Guller Young
+                           Scholar</a></li>
+                  </ul>
 
                </div>
 
@@ -207,7 +212,8 @@
                   <p class="info">Co-Owner <span>&bull;</span> <em class="date">November 2021 - Present</em></p>
 
                   <p>
-                     Established a <a href="https://yhoo.it/3H1dV3i">portfolio</a> and utilize weekly meetings to vote upon stock picks and discuss investment
+                     Established a <a href="https://yhoo.it/3H1dV3i">portfolio</a> and utilize weekly meetings to vote
+                     upon stock picks and discuss investment
                      strategy and market trends to ensure our fund’s stability, longevity, and growth.
                   </p>
 
@@ -223,7 +229,8 @@
                   <p class="info">Developer <span>&bull;</span> <em class="date">August 2019 - Present</em></p>
 
                   <p>
-                     Developed and sold HTML, CSS, & JS <a href="#portfolio">widgets</a> for jailbroken iOS devices that received over 2500
+                     Developed and sold HTML, CSS, & JS <a href="#portfolio">widgets</a> for jailbroken iOS devices that
+                     received over 2500
                      purchases. Ensured customer satisfaction by continually implementing feedback through consistent
                      software updates.
                   </p>
@@ -344,15 +351,18 @@
 
                   <h3>Sigma Alpha Mu Fraternity</h3>
                   <p class="info">
-                     Founding Father & Public Relations Chairman <span>&bull;</span> <em
-                        class="date">November 2021 - Present</em><br />
-                        <a style="color: grey;" href="https://www.instagram.com/sammys_uiuc/"><i class="fa fa-instagram"></i></a> &nbsp; <a style="color: grey;" href="https://www.facebook.com/sigmaalphamu.uiuc"><i class="fa fa-facebook"></i></a>
-                     </p>
+                     Founding Father & Public Relations Chairman <span>&bull;</span> <em class="date">November 2021 -
+                        Present</em><br />
+                     <a style="color: grey;" href="https://www.instagram.com/sammys_uiuc/"><i
+                           class="fa fa-instagram"></i></a> &nbsp; <a style="color: grey;"
+                        href="https://www.facebook.com/sigmaalphamu.uiuc"><i class="fa fa-facebook"></i></a>
+                  </p>
 
                   <p>
                      Coordinate with ΣAM nationals to reestablish the Rho Chapter by coordinating events, recruitment,
                      and involvement. Maintain the fraternity’s social media presence. In 28 days, the Facebook reach
-                     grew 300%, and the Instagram reach grew 284%. Develop innovative solutions such as the <a href="#pass">Purple Pass</a>, a digital Apple Wallet compatible, event ticket.
+                     grew 300%, and the Instagram reach grew 284%. Develop innovative solutions such as the <a
+                        href="#pass">Purple Pass</a>, a digital Apple Wallet compatible, event ticket.
                   </p>
 
                </div>
@@ -996,7 +1006,8 @@
                         </div><br />
 
                         <h1>richardsbodyshop.com</h1>
-                        <p>I developed this site for Richard's Body Shop to help modernize their web presence as they modernize their physical location for EV repairs.</p>
+                        <p>I developed this site for Richard's Body Shop to help modernize their web presence as they
+                           modernize their physical location for EV repairs.</p>
                         <p><button onclick="location.href= 'http://richardsbodyshop.com';">Learn More</button></p>
                      </li> <!-- slide ends -->
 
@@ -1023,6 +1034,138 @@
       </div> <!-- text-container ends -->
 
    </section> <!-- projects Section End-->
+
+
+   <!-- BTW 285 Section
+   ================================================== -->
+   <section id="btw285">
+      <style>
+         /* Media query for screens with a maximum width of, for example, 600px (adjust as needed) */
+         @media (max-width: 600px) {
+            #btw285 div {
+               flex-direction: column;
+               /* Stack items vertically */
+               align-items: flex-start;
+               /* Adjust alignment as needed */
+            }
+
+            #btw285 p,
+            #btw285 img {
+               max-width: 90% !important;
+               max-height: 90% !important;
+               /* Make both paragraph and image full-width */
+               margin: 0;
+               /* Remove any margin between them */
+            }
+         }
+      </style>
+      <div id="bottom285">
+         <h1 style="margin: 15px;">Social Media Autobiography</h1>
+         <p style="margin: 15px;">
+            Embarking on my social media journey, I never imagined the profound impact it would
+            have on my life and my relationship with technology. From the early days of gaming incentives to
+            professional networking on platforms like <a
+               href="https://www.linkedin.com/in/isaac-zipperstein/">LinkedIn</a>, this autobiography delves into how
+            social media and technology has molded
+            my growth and aspirations.
+         </p>
+         <h3 style="margin: 15px;">My Early Social Media Journey</h3>
+         <p style="margin: 15px;">
+            My venture into the world of social media began when I first downloaded Facebook during fifth-grade,
+            initially driven by the desire to unlock keys in Subway Surfers and gain advantages in other games. However,
+            my true social media journey didn't truly take off until I added Snapchat to my repertoire in 2015, followed
+            by <a href="http://twitter.com/AplAddict">Twitter</a> in 2016. These platforms opened the doors to the vast
+            landscape of social media, leading to a transformative experience.
+            <br><br>
+            While my Snapchat activity remained fairly minimal, just for communicating with friends, I became an
+            enthusiastic Twitter user, forging connections with individuals of all ages from around the globe. These
+            interactions became the cornerstone of my digital journey.
+         </p>
+         <h3 style="margin: 15px;">Building Connections and Creating Opportunities</h3>
+         <div style="display: flex; align-items: center;">
+            <img style="max-width: 100%; margin: 15px; max-height: 300px;" src="/images/btw285/1.png">
+            <p style="margin: 15px;flex:1;">
+               Our shared passion for iOS tweaking and sideloading became the glue to forge the bonds between us. We
+               collectively delved deeper into our interests, facilitating mutual learning and growth. I had the
+               privilege of engaging in conversations with the developers behind products I frequently used, and we even
+               collaborated on innovative projects. Even now when I delve back into the community often the software I
+               am using is developed by friends who I worked and learned with in middle and high school.
+               <br><br>
+               One example of this collaboration was my involvement with a developer from an iOS theming and sideloading
+               platform. As a seventh grader, I seized the opportunity to work alongside this developer on many small
+               projects. This experience was not an isolated incident; I maintained a continuous dialogue to this day
+               with individuals online, collaborating to create novel technologies, such as iOS restriction bypasses,
+               mobile device management (MDM) bypasses, <a href="https://isaaczipperstein.com#portfolio">jailbreak
+                  widgets,</a>
+               websites, and <a href="https://isaaczipperstein.com#projects">many other projects.</a>
+               <br><br>
+               While navigating the realm of technology, I remained aware of the potential dangers that lurked
+               within the vast expanse of the internet and social media. However, I also recognized the many benefits
+               that these platforms offered, from expanding my knowledge and skill set to forging meaningful connections
+               with like-minded individuals across the globe. My experience with social media has fueled my passion for
+               technology, creating an ideal setting for continuous learning and growth.
+            </p>
+         </div>
+         <h3 style="margin: 15px;">My Addiction and Reliance</h3>
+         <div style="display: flex; align-items: center;">
+            <p style="margin: 15px;flex:1;">
+               Navigating the digital landscape, however, wasn't without its challenges. My journey through social media
+               also revealed the double-edged sword of technology addiction. I found myself increasingly reliant on
+               these
+               platforms for both entertainment and communication, often spending more time than I intended scrolling
+               through endless feeds on many different platforms including <a
+                  href="http://twitter.com/AplAddict">Twitter</a>, TikTok, and Reddit. It's a predicament that many of
+               us share in this technology-driven age. While I think I could easily survive without social media
+               surviving
+               without technonlogy would be extremely difficult. I believe this is because I am addicted to consuming
+               the informative and entertaining content that technology and social media helps people share. However, I
+               am not addicted to any specific social media medium upon which it is shared.
+               <br><br>
+               Interestingly, even Subway Surfers, the game that initially led me into the world of social media, has
+               remained a constant presence. Nowadays, I often come across split-screen TikTok videos, with entertaining
+               content on the top and addictive games like Subway Surfers running at the bottom. It serves as a vivid
+               illustration of how technology, by constantly stimulating our senses with more and more content, has
+               shortened our attention spans. I, like many others, find it irresistible, continuing to watch and engage
+               with this captivating fusion of entertainment and technology.
+            </p>
+            <img style="max-width: 100%; margin: 15px; max-height: 300px;" src="/images/btw285/2.png">
+         </div>
+         <h3 style="margin: 15px;">Charting a Tech-Driven Future</h3>
+         <p style="margin: 15px;">
+            As I look ahead, my aspirations within the realm of social media expand beyond personal use. I am beginning
+            to leveraging platforms like <a href="https://www.linkedin.com/in/isaac-zipperstein/">LinkedIn</a> to
+            establish a robust professional presence, forging connections, and
+            sharing insights in the ever-evolving tech and business landscapes. I have also used more niche social media
+            platforms to help me grow in my proffesional intrests. For example, I used <a
+               href="https://stocktwits.com/">Stocktwits</a> to communicate with others and learn more about stock
+            trading and investing.
+            <br><br>
+            Over the past summer, I had the opportunity to work at a body shop specializing in electric vehicles
+            undergoing expansion and transformation. Amidst these changes, it became evident that the business needed
+            enhanced efficiency. To address this, I took the initiative to develop a <a
+               href="https://richardsbodyshop.com">new website</a> and implement a system for managing their parts
+            inventory, significantly improving organization and workflow. This hands-on experience reinforced my
+            determination to harness the power of technology including artificial intelligence and automation in my
+            future career. In my role at the shop I also utilized niche social media such as <a
+               href="https://teslamotorsclub.com">Tesla Motors Club</a> to
+            help bring in more customers. Whether I find myself in the realm of digital consulting or within a
+            technology-focused business role, my goal remains consistent: streamlining workflows and enhancing
+            efficiency through cutting-edge tools and processes.
+            <br><br>
+            This commitment to the seamless integration of technology harmonizes perfectly with my recent summer job,
+            which immersed me in a technology-centric environment. It further solidified my resolve to make technology
+            an indispensable facet of my future career journey, bridging the gap between my passions and professional
+            pursuits.
+         </p>
+         <br><br>
+         <center>
+            <p style="margin-left: 15%;margin-right: 15%;font-size: smaller;">The images displayed above were generated
+               using <a href="https://openai.com/" target="_blank">OpenAI's DALL·E2</a> through prompts provided by <a
+                  href="https://openai.com/gpt-3/" target="_blank">Chat-GPT</a>.
+            </p>
+         </center>
+      </div>
+   </section> <!-- BTW 285 Section End-->
 
 
    <!-- footer

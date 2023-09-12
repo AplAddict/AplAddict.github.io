@@ -29,6 +29,17 @@ html, body {
    overflow-x: hidden;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+iframe::-webkit-scrollbar, .row-item::-webkit-scrollbar {
+   display: none;
+ }
+ 
+ /* Hide scrollbar for IE, Edge and Firefox */
+iframe, .row-item {
+   -ms-overflow-style: none;  /* IE and Edge */
+   scrollbar-width: none;  /* Firefox */
+}
+
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
 /* ------------------------------------------------------------------ */
@@ -192,7 +203,7 @@ ul#nav li.current a { color: #F06000; }
 /* c. About Section
 /* ------------------------------------------------------------------ */
 
-#about {
+#about, #top285 {
    background: #2B2B2B;
    padding-top: 96px;
    padding-bottom: 66px;
@@ -241,7 +252,7 @@ ul#nav li.current a { color: #F06000; }
 /* d. Resume Section
 /* ------------------------------------------------------------------ */
 
-#resume {
+#resume, #bottom285 {
    background: #fff;
    padding-top: 90px;
    padding-bottom: 72px;
@@ -256,7 +267,7 @@ ul#nav li.current a { color: #F06000; }
    text-transform: uppercase;
    letter-spacing: 1px;
 }
-#resume h1 span {
+#resume h1 span, #bottom285 h1{
    border-bottom: 3px solid #11ABB0;
    padding-bottom: 6px;
 }
