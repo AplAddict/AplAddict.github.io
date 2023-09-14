@@ -206,14 +206,14 @@ function hide() {
    if (window.location.href.indexOf("btw285") > -1) {
       document.getElementById('about').style.display = "none";
       document.getElementById('resume').style.display = "none";
-      document.getElementById('portfolio').style.display = "none";
       document.getElementById('projects').style.display = "none";
       document.getElementById('btw285').style.display = "block";
+      document.getElementById('btw2852').style.display = "block";
    } else {
       document.getElementById('about').style.display = "block";
       document.getElementById('resume').style.display = "block";
-      document.getElementById('portfolio').style.display = "block";
       document.getElementById('projects').style.display = "block";
       document.getElementById('btw285').style.display = "none";
+      document.getElementById('btw2852').style.display = "none";
    }
 }
