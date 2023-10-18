@@ -252,7 +252,7 @@ ul#nav li.current a { color: #F06000; }
 /* d. Resume Section
 /* ------------------------------------------------------------------ */
 
-#resume, #bottom285 {
+#resume, #bottom285, #designReport {
    background: #fff;
    background-color: #fff;
    padding-top: 90px;
@@ -268,7 +268,7 @@ ul#nav li.current a { color: #F06000; }
    text-transform: uppercase;
    letter-spacing: 1px;
 }
-#resume h1 span, #bottom285 h1{
+#resume h1 span, #bottom285, #designReport h1{
    border-bottom: 3px solid #11ABB0;
    padding-bottom: 6px;
 }
